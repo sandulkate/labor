@@ -9,8 +9,7 @@ public class CalculatorGUI {
     private JTextArea resultArea;
     private Calculator calculator;
     private Command customCommand;
-    private JComboBox<String> operationCombo; // Добавлено
-
+    private JComboBox<String> operationCombo;
     public CalculatorGUI() {
         calculator = new Calculator();
         createUI();
@@ -19,16 +18,16 @@ public class CalculatorGUI {
     private void createUI() {
         frame = new JFrame("Клавиатура настраимаемого калькулятора");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 350); // Увеличено для нового элемента
+        frame.setSize(400, 350); 
 
-        JPanel panel = new JPanel(new GridLayout(7, 2, 5, 5)); // Изменено на 7 строк
+        JPanel panel = new JPanel(new GridLayout(7, 2, 5, 5));
 
         fieldA = new JTextField();
         fieldB = new JTextField();
         resultArea = new JTextArea(4, 20);
         resultArea.setEditable(false);
 
-        // Добавлен выпадающий список операций
+        //выпадающий список операций
         operationCombo = new JComboBox<>(new String[]{"Сложение", "Вычитание", "Умножение", "Деление"});
 
         JButton addBtn = new JButton("Сложить");
@@ -38,13 +37,12 @@ public class CalculatorGUI {
         JButton assignCustomBtn = new JButton("Назначить на кнопку");
         JButton customBtn = new JButton("Пользовательская кнопка");
 
-        // Основные команды (остаются без изменений)
+        //Основные команды
         addBtn.addActionListener(e -> executeCommand(new AddCommand(calculator, getA(), getB())));
         subBtn.addActionListener(e -> executeCommand(new SubtractCommand(calculator, getA(), getB())));
         mulBtn.addActionListener(e -> executeCommand(new MultiplyCommand(calculator, getA(), getB())));
         divBtn.addActionListener(e -> executeCommand(new DivideCommand(calculator, getA(), getB())));
 
-        // Измененная логика назначения команды
         assignCustomBtn.addActionListener(e -> {
             double a = getA();
             double b = getB();
@@ -68,7 +66,7 @@ public class CalculatorGUI {
             resultArea.setText("Назначена операция: " + selectedOp);
         });
 
-        // Логика выполнения назначенной команды
+        //выполнения назначенной команды
         customBtn.addActionListener(e -> {
             if (customCommand != null) {
                 executeCommand(customCommand);
@@ -77,13 +75,13 @@ public class CalculatorGUI {
             }
         });
 
-        // Добавление элементов на панель (добавлен выпадающий список)
+        // Добавление элементов на панель
         panel.add(new JLabel("A:"));
         panel.add(fieldA);
         panel.add(new JLabel("B:"));
         panel.add(fieldB);
-        panel.add(new JLabel("Операция:")); // Новый элемент
-        panel.add(operationCombo);        // Новый элемент
+        panel.add(new JLabel("Операция:")); 
+        panel.add(operationCombo);       
         panel.add(addBtn);
         panel.add(subBtn);
         panel.add(mulBtn);
@@ -97,7 +95,7 @@ public class CalculatorGUI {
         frame.setVisible(true);
     }
 
-    // Остальные методы без изменений
+   
     private double getA() {
         return Double.parseDouble(fieldA.getText());
     }
