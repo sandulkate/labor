@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library>
+  <book id="b1">
+    <title>War and Peace</title>
+    <author>Lev Tolstoy</author>
+    <year>1869</year>
+    <genre>Historical</genre>
+    <price>22.99</price>
+  </book>
+  <book id="b2">
+    <title>Harry Potter</title>
+    <author>Djoan Rowling</author>
+    <year>1990</year>
+    <genre>Fantasy</genre>
+    <price>29.99</price>
+  </book>
+  <book id="b3">
+    <title>The Hobbit</title>
+    <author>Jon Tolkien</author>
+    <year>1937</year>
+    <genre>Fantasy</genre>
+    <price>25.50</price>
+  </book>
+</library>
